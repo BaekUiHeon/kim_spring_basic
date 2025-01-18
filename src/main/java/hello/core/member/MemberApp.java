@@ -4,12 +4,12 @@ import hello.core.AppConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class memberApp {
+public class MemberApp {
     public static void main(String[] args) {
 //        AppConfig appconfig = new AppConfig();
 //        MemberService memberService = appconfig.memberService();
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
-        applicationContext.getBean("memberService", MemberService.class)
+        MemberService memberService = applicationContext.getBean("memberService", MemberService.class);
 
         Member member = new Member(1L, "memberA", Grade.VIP);
         memberService.join(member);
